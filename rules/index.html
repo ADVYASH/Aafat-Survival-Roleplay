@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Rules | ASRP III</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:#0b0b0b;
+color:white;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:flex-end;
+padding:15px 40px;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:18px;
+padding:8px 16px;
+border-radius:6px;
+transition:.3s;
+}
+
+nav a:hover{
+background:#ff7a00;
+box-shadow:0 0 10px #ff7a00;
+}
+
+/* RULE PAGE */
+
+.rules{
+min-height:100vh;
+padding:140px 8%;
+background:
+linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.95)),
+url("https://cdn.discordapp.com/attachments/1480621255223935127/1482059146336665772/los-angeles-downtown-buildings-night.jpg") center/cover no-repeat;
+}
+
+.rules h1{
+text-align:center;
+font-size:55px;
+color:#ff7a00;
+margin-bottom:40px;
+text-shadow:0 0 20px #ff7a00;
+}
+
+/* LAYOUT */
+
+.rules-container{
+display:flex;
+gap:30px;
+align-items:flex-start;
+flex-wrap:wrap;
+}
+
+/* CATEGORY PANEL */
+
+.categories{
+width:260px;
+background:rgba(0,0,0,.6);
+border-radius:10px;
+border:1px solid rgba(255,120,0,.2);
+padding:20px;
+height:600px;
+overflow-y:auto;
+}
+
+.categories button{
+display:block;
+width:100%;
+margin:8px 0;
+padding:10px;
+background:none;
+border:1px solid rgba(255,120,0,.3);
+color:white;
+cursor:pointer;
+border-radius:6px;
+transition:.3s;
+}
+
+.categories button:hover,
+.categories button.active{
+background:#ff7a00;
+}
+
+/* RULE CONTENT */
+
+.rule-content{
+flex:1;
+background:rgba(0,0,0,.6);
+padding:30px;
+border-radius:10px;
+border:1px solid rgba(255,120,0,.2);
+}
+
+.rule-section{
+display:none;
+}
+
+.rule-section.active{
+display:block;
+}
+
+.rule{
+margin-bottom:15px;
+padding:12px;
+border-left:3px solid #ff7a00;
+background:rgba(255,255,255,.03);
+max-width:100%;
+}
+
+.rule strong{
+color:#ff7a00;
+}
+
+/* FOOTER */
+
+footer{
+background:#050505;
+padding:60px 10%;
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+margin-top:80px;
+}
+
+.footer-links a{
+display:block;
+color:white;
+opacity:.7;
+text-decoration:none;
+margin:4px 0;
+}
+
+.footer-links a:hover{
+color:#ff7a00;
+}
+
+.bottom{
+text-align:center;
+padding:15px;
+background:#030303;
+opacity:.7;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width:900px){
+
+.rules-container{
+flex-direction:column;
+}
+
+.categories{
+width:100%;
+height:auto;
+display:flex;
+overflow-x:auto;
+gap:10px;
+}
+
+.categories button{
+min-width:150px;
+white-space:nowrap;
+}
+
+.rule-content{
+width:100%;
+}
+
+.rules h1{
+font-size:38px;
+}
+
+nav{
+justify-content:center;
+flex-wrap:wrap;
+}
+
+nav a{
+margin:5px;
+}
+
+}
+
+@media (max-width:600px){
+
+.rules{
+padding:120px 5%;
+}
+
+.rule{
+width:100%;
+}
+
+.categories{
+padding:10px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="https://aafatgaming.fun/" target="_blank" rel="noopener noreferrer">Aafat</a>
+<a href="about">About</a>
+<a href="rules">Rules</a>
+<a href="apply">Apply</a>
+<a href="store">Store</a>
+</nav>
+
+<section class="rules">
+
+<h1>Server Rules</h1>
+
+<div class="rules-container">
+
+<div class="categories">
+
+<button class="active" onclick="showRule('general',this)">General Server Rules</button>
+<button onclick="showRule('roleplay',this)">Respect & Player Behavior</button>
+<button onclick="showRule('combat',this)">No Cheating or Unfair Advantages</button>
+<button onclick="showRule('community',this)">Roleplay Standards</button>
+<button onclick="showRule('economy',this)">Powergaming & Metagaming</button>
+<button onclick="showRule('vehicles',this)">Combat & Raiding Rules</button>
+<button onclick="showRule('property',this)">Exploits & Server Abuse</button>
+<button onclick="showRule('police',this)">Chat & Communication Rules</button>
+<button onclick="showRule('criminal',this)">Trading & Economy Rules</button>
+<button onclick="showRule('business',this)">Staff & Punishment Policy</button>
+
+</div>
+
+<div class="rule-content">
+
+<div id="general" class="rule-section active">
+<div class="rule"><strong>1.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Respect all players and staff at all times.</div>
+<div class="rule"><strong>2.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Follow all server rules and announcements.</div>
+<div class="rule"><strong>3.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Use common sense while playing.</div>
+<div class="rule"><strong>4.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Do not intentionally disrupt gameplay for others.</div>
+<div class="rule"><strong>5.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Staff decisions must be respected.</div>
+</div>
+
+<div id="roleplay" class="rule-section">
+<div class="rule"><strong>1.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Treat all players with respect both IC and OOC.</div>
+<div class="rule"><strong>2.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Harassment, bullying, racism, or discrimination is strictly prohibited.</div>
+<div class="rule"><strong>3.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Toxic behavior will not be tolerated.</div>
+<div class="rule"><strong>4.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Do not threaten or abuse other players.</div>
+<div class="rule"><strong>5.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Keep the community friendly and welcoming.</div>
+</div>
+
+<div id="combat" class="rule-section">
+<div class="rule"><strong>1.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Hacked clients are strictly prohibited.</div>
+<div class="rule"><strong>2.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">X-ray or unfair texture packs are not allowed.</div>
+<div class="rule"><strong>3.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Fly hacks, speed hacks, or movement cheats are banned.</div>
+<div class="rule"><strong>4.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Auto-clickers or macros that give PvP advantage are not allowed.</div>
+<div class="rule"><strong>5.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Any modification that gives unfair advantage will lead to punishment.</div>
+</div>
+
+<div id="community" class="rule-section">
+<div class="rule"><strong>1.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Stay in character during roleplay situations.</div>
+<div class="rule"><strong>2.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Keep roleplay realistic and immersive.</div>
+<div class="rule"><strong>3.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Do not break immersion unnecessarily.</div>
+<div class="rule"><strong>4.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Use realistic character names and skins.</div>
+<div class="rule"><strong>5.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Avoid troll or meme behavior during serious RP.</div>
+</div>
+
+<div id="economy" class="rule-section">
+<div class="rule"><strong>1.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Do not force unrealistic actions on other players.</div>
+<div class="rule"><strong>2.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Give players a chance to react in RP situations.</div>
+<div class="rule"><strong>3.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Do not use outside information for in-game advantage.</div>
+<div class="rule"><strong>4.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Discord or stream information cannot be used in RP.</div>
+<div class="rule"><strong>5.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Keep IC and OOC information separate.</div>
+</div>
+
+<div id="vehicles" class="rule-section">
+<div class="rule"><strong>1.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">No Random Killing (RDM).</div>
+<div class="rule"><strong>2.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Attacking players must have proper roleplay reason.</div>
+<div class="rule"><strong>3.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Raiding bases must have RP justification.</div>
+<div class="rule"><strong>4.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Avoid griefing or unnecessary destruction.</div>
+<div class="rule"><strong>5.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">PvP should remain fair and balanced.</div>
+</div>
+
+<div id="property" class="rule-section">
+<div class="rule"><strong>1.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Do not exploit bugs, glitches, or duplication errors.</div>
+<div class="rule"><strong>2.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Report bugs immediately to server staff.</div>
+<div class="rule"><strong>3.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Creating lag machines is not allowed.</div>
+<div class="rule"><strong>4.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Redstone abuse causing lag is prohibited.</div>
+<div class="rule"><strong>5.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Server abuse may lead to severe punishment.</div>
+</div>
+
+<div id="police" class="rule-section">
+<div class="rule"><strong>1.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Global chat must remain respectful.</div>
+<div class="rule"><strong>2.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">English or Hinglish should be used in global chat.</div>
+<div class="rule"><strong>3.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Avoid spamming, flooding, or excessive caps.</div>
+<div class="rule"><strong>4.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Offensive or inappropriate language is not allowed.</div>
+<div class="rule"><strong>5.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Private messages can be in any language.</div>
+</div>
+
+<div id="criminal" class="rule-section">
+<div class="rule"><strong>1.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Real-life money trading is strictly prohibited.</div>
+<div class="rule"><strong>2.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Do not scam other players.</div>
+<div class="rule"><strong>3.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Trading must follow server economy rules.</div>
+<div class="rule"><strong>4.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Selling ranks or items for real money is not allowed.</div>
+<div class="rule"><strong>5.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Keep trades fair and honest.</div>
+</div>
+
+<div id="business" class="rule-section">
+<div class="rule"><strong>1.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Respect staff members and their decisions.</div>
+<div class="rule"><strong>2.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Do not impersonate staff or admins.</div>
+<div class="rule"><strong>3.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">If you disagree with punishment, use the appeal system.</div>
+<div class="rule"><strong>4.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Arguing publicly with staff is not allowed.</div>
+<div class="rule"><strong>5.</strong><img src="https://cdn.discordapp.com/emojis/1480976391578058892.gif" style="height:30px; vertical-align:middle;">Breaking rules may result in warning, mute, kick, or ban.</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div>
+<h2>ASRP</h2>
+<p>Build your world, rule your realm.</p>
+</div>
+
+<div class="footer-links">
+<h4>Quick Links</h4>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="rules.html">Rules</a>
+<a href="apply.html">Apply</a>
+</div>
+
+<div class="footer-links">
+<h4>Community</h4>
+<a href="store.html">Store</a>
+<a href="https://aafatgaming.fun/" target="_blank">Aafat Gaming</a>
+<a href="https://youtube.com/@mafiaaafat" target="_blank">YouTube</a>
+</div>
+
+</footer>
+
+<div class="bottom">
+© 2026 Aafat Syndicate Roleplay. All Rights Reserved.
+</div>
+
+<script>
+
+function showRule(id,btn){
+
+document.querySelectorAll('.rule-section').forEach(r=>{
+r.classList.remove('active');
+});
+
+document.querySelectorAll('.categories button').forEach(b=>{
+b.classList.remove('active');
+});
+
+document.getElementById(id).classList.add('active');
+btn.classList.add('active');
+
+}
+
+</script>
+
+</body>
+</html>
