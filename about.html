@@ -56,10 +56,30 @@ min-height:100vh;
 
 background:
 linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.95)),
-url("https://cdn.discordapp.com/attachments/1480621255223935127/1482059146336665772/los-angeles-downtown-buildings-night.jpg") center/cover no-repeat;
+url("https://cdn.discordapp.com/attachments/1480621255223935127/1482059146336665772/los-angeles-downtown-buildings-night.jpg?ex=69b63b63&is=69b4e9e3&hm=9479da60535c9edeaa1154b889e6765d166849542d4e137359bb7290258b56ec&") center/cover no-repeat;
+
+background-attachment: fixed;
 
 padding:140px 10%;
 text-align:center;
+}
+
+/* BLINK ANIMATION */
+
+@keyframes bgBlink{
+
+0%{
+filter:brightness(100%);
+}
+
+50%{
+filter:brightness(130%);
+}
+
+100%{
+filter:brightness(100%);
+}
+
 }
 
 /* TITLE */
@@ -145,6 +165,16 @@ flex-shrink:0;
 
 .emoji-text span{
 flex:1;
+}
+
+.footer-logo{
+display:flex;
+flex-direction:column;
+}
+
+.footer-logo img{
+width:130px;
+margin-bottom:8px;
 }
 </style>
 </head>
@@ -280,8 +310,8 @@ flex:1;
 
 <footer>
 
-<div>
-<h2>ASRP</h2>
+<div class="footer-logo">
+<img src="logo1.png" alt="ASRP Logo">
 <p>Build your world, rule your realm.</p>
 </div>
 
@@ -303,7 +333,7 @@ flex:1;
 </footer>
 
 <div class="bottom">
-© 2026 Aafat Syndicate Roleplay. All Rights Reserved.
+© 2026 Aafat Survival Roleplay. All Rights Reserved.
 </div>
 
 </body>
