@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Public Forms | ASRP III</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+color:white;
+background:
+linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.95)),
+url("https://cdn.discordapp.com/attachments/1480621255223935127/1482059146336665772/los-angeles-downtown-buildings-night.jpg")
+center/cover no-repeat;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+/* BACK BUTTON */
+
+.back{
+position:absolute;
+top:20px;
+right:30px;
+}
+
+.back a{
+text-decoration:none;
+color:white;
+background:#ff7a00;
+padding:10px 18px;
+border-radius:6px;
+font-weight:bold;
+transition:.3s;
+}
+
+.back a:hover{
+box-shadow:0 0 15px #ff7a00;
+}
+
+/* MAIN PANEL */
+
+.container{
+text-align:center;
+background:rgba(0,0,0,.6);
+padding:50px;
+border-radius:12px;
+border:1px solid rgba(255,120,0,.3);
+box-shadow:0 0 20px rgba(255,120,0,.2);
+}
+
+.container h1{
+font-size:45px;
+color:#ff7a00;
+margin-bottom:30px;
+text-shadow:0 0 15px #ff7a00;
+}
+
+/* BUTTON TABLE */
+
+.table{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.btn{
+background:rgba(0,0,0,.7);
+border:1px solid rgba(255,120,0,.4);
+padding:30px;
+border-radius:10px;
+cursor:pointer;
+transition:.3s;
+font-size:18px;
+}
+
+.btn:hover{
+transform:translateY(-5px);
+box-shadow:0 0 15px rgba(255,120,0,.6);
+border-color:#ff7a00;
+}
+
+/* POPUP */
+
+.popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.7);
+display:none;
+align-items:center;
+justify-content:center;
+}
+
+.popup-content{
+background:#111;
+padding:40px;
+border-radius:10px;
+border:1px solid rgba(255,120,0,.4);
+text-align:center;
+max-width:400px;
+}
+
+.popup-content h2{
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+.popup-content p{
+margin-bottom:20px;
+font-size:15px;
+opacity:.9;
+}
+
+.popup-content input{
+margin-right:8px;
+}
+
+.submit{
+margin-top:20px;
+background:#ff7a00;
+border:none;
+padding:12px 20px;
+color:white;
+border-radius:6px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.submit:hover{
+box-shadow:0 0 12px #ff7a00;
+}
+
+.close{
+margin-top:10px;
+display:block;
+cursor:pointer;
+opacity:.6;
+}
+
+.close:hover{
+opacity:1;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="back">
+<a href="index.html"><i class="fa-solid fa-arrow-left"></i> Back</a>
+</div>
+
+<div class="container">
+
+<h1>Public Forms</h1>
+
+<div class="table">
+
+<div class="btn" onclick="openPopup('whitelist')">
+<i class="fa-solid fa-user-check"></i><br><br>
+Public Whitelist Form
+</div>
+
+<div class="btn" onclick="openPopup('creator')">
+<i class="fa-solid fa-star"></i><br><br>
+Creator Whitelist Form
+</div>
+
+</div>
+
+</div>
+
+<!-- POPUP -->
+
+<div class="popup" id="popup">
+
+<div class="popup-content">
+
+<h2>Before You Start</h2>
+
+<p>
+Please confirm that you understand the rules and agree to answer the quiz honestly before starting the whitelist form.
+</p>
+
+<label>
+<input type="checkbox" id="agree">
+I agree and want to continue
+</label>
+
+<br>
+
+<button class="submit" onclick="submitForm()">Submit</button>
+
+<span class="close" onclick="closePopup()">Cancel</span>
+
+</div>
+
+</div>
+
+<script>
+
+let formType = "";
+
+function openPopup(type){
+formType = type;
+document.getElementById("popup").style.display="flex";
+}
+
+function closePopup(){
+document.getElementById("popup").style.display="none";
+}
+
+function submitForm(){
+
+let agree = document.getElementById("agree");
+
+if(!agree.checked){
+alert("Please agree before continuing.");
+return;
+}
+
+if(formType === "whitelist"){
+window.open("https://whitelistform--public.online", "_blank");
+}
+
+if(formType === "creator"){
+window.open("CREATOR_FORM_LINK", "_blank");
+}
+
+closePopup();
+
+}
+
+</script>
+
+</body>
+</html>
